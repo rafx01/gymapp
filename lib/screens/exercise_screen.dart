@@ -72,6 +72,7 @@ class ExerciseScreen extends StatelessWidget {
               children: List.generate(feelingList.length, (index) {
                 FeelingModel feelingrn = feelingList[index];
                 return ListTile(
+                  dense: true,
                   contentPadding: EdgeInsets.zero,
                   title: Text(feelingrn.feeling),
                   subtitle: Text(feelingrn.date),
