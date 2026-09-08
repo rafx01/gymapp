@@ -20,32 +20,69 @@ class ExerciseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Puxada alta pronada')),
+      backgroundColor: Colors.lightBlue,
+      appBar: AppBar(
+        title: Text("${exerciseModel.name} - ${exerciseModel.title}"),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('clicou');
         },
         child: Icon(Icons.add),
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        margin: EdgeInsets.all(8),
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
-            ElevatedButton(onPressed: () {}, child: Text('Enviar foto')),
+            SizedBox(
+              height: 250,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(onPressed: () {}, child: Text('Enviar foto')),
+                  ElevatedButton(onPressed: () {}, child: Text('Tirar foto')),
+                ],
+              ),
+            ),
+            SizedBox(height: 8),
             Text(
               'Como fazer?',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            Text(
-              'Segura com as duas mãos na barra, mantém a coluna reta e puxa',
+            SizedBox(height: 8),
+
+            Text(exerciseModel.howToDo),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Divider(color: Colors.black),
             ),
-            Divider(),
             Text(
               'Como estou me sentindo?',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            Text('Senti bastante ativação hoje'),
+            SizedBox(height: 8),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: List.generate(feelingList.length, (index) {
+                FeelingModel feelingrn = feelingList[index];
+                return ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(feelingrn.feeling),
+                  subtitle: Text(feelingrn.date),
+                  leading: Icon(Icons.double_arrow),
+                  trailing: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.delete, color: Colors.red),
+                  ),
+                );
+              }),
+            ),
           ],
         ),
       ),
