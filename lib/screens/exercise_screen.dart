@@ -22,7 +22,24 @@ class ExerciseScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
-        title: Text("${exerciseModel.name} - ${exerciseModel.title}"),
+        title: Column(
+          children: [
+            Text(
+              exerciseModel.name,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            ),
+            Text(exerciseModel.title, style: TextStyle(fontSize: 15)),
+          ],
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF0A6D92),
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.vertical(
+            bottom: Radius.circular(32),
+          ),
+        ),
+        toolbarHeight: 72,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymapp/screens/exercise_screen.dart';
+import 'package:gymapp/screens/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: ExerciseScreen(),
+      home: AuthScreen(),
     );
   }
 }
