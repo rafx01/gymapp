@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/_common/colors.dart';
 import 'package:gymapp/models/exercise_model.dart';
 import 'package:gymapp/models/feeling_model.dart';
 
@@ -32,7 +33,7 @@ class ExerciseScreen extends StatelessWidget {
           ],
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF0A6D92),
+        backgroundColor: MyColors.darkBlue,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.vertical(
